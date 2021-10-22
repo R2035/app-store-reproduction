@@ -1,0 +1,6 @@
+--swiftversion 5.0
+--exclude **/Resource/**
+--commas inline
+--disable unusedArguments
+--disable strongOutlets
+
