@@ -68,6 +68,19 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		8E77C8C527238443007FF4E3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8EF9110727237F2A00D184E2 /* AppDelegate.swift */,
+				8EF9110927237F2A00D184E2 /* SceneDelegate.swift */,
+				8EF9110B27237F2A00D184E2 /* ViewController.swift */,
+				8EF9110D27237F2A00D184E2 /* Main.storyboard */,
+				8EF9111227237F2B00D184E2 /* LaunchScreen.storyboard */,
+				8EF9111527237F2B00D184E2 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		8EF910FB27237F2A00D184E2 = {
 			isa = PBXGroup;
 			children = (
@@ -89,13 +102,8 @@
 		8EF9110627237F2A00D184E2 /* AppStoreReproduction */ = {
 			isa = PBXGroup;
 			children = (
+				8E77C8C527238443007FF4E3 /* App */,
 				8E77C8BB2723819C007FF4E3 /* Resource */,
-				8EF9110727237F2A00D184E2 /* AppDelegate.swift */,
-				8EF9110927237F2A00D184E2 /* SceneDelegate.swift */,
-				8EF9110B27237F2A00D184E2 /* ViewController.swift */,
-				8EF9110D27237F2A00D184E2 /* Main.storyboard */,
-				8EF9111227237F2B00D184E2 /* LaunchScreen.storyboard */,
-				8EF9111527237F2B00D184E2 /* Info.plist */,
 			);
 			path = AppStoreReproduction;
 			sourceTree = "<group>";
@@ -436,7 +444,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AppStoreReproduction/Info.plist;
+				INFOPLIST_FILE = AppStoreReproduction/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -464,7 +472,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AppStoreReproduction/Info.plist;
+				INFOPLIST_FILE = AppStoreReproduction/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
