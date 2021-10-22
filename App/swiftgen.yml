@@ -1,0 +1,12 @@
+input_dir: AppStoreReproduction
+output_dir: AppStoreReproduction/Resource
+strings:
+  inputs: Resource/Localizable.strings
+  outputs:
+    templateName: structured-swift5
+    output: Strings.swift
+xcassets:
+  inputs: Resource/Assets.xcassets
+  outputs:
+    templateName: swift5
+    output: Assets.swift
