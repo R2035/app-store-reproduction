@@ -1,0 +1,40 @@
+PODS:
+  - Reusable (4.1.2):
+    - Reusable/Storyboard (= 4.1.2)
+    - Reusable/View (= 4.1.2)
+  - Reusable/Storyboard (4.1.2)
+  - Reusable/View (4.1.2)
+  - SnapKit (5.0.1)
+  - SwiftFormat/CLI (0.48.17)
+  - SwiftGen (6.5.1)
+  - SwiftLint (0.45.0)
+  - Swinject (2.8.1)
+
+DEPENDENCIES:
+  - Reusable
+  - SnapKit
+  - SwiftFormat/CLI
+  - SwiftGen
+  - SwiftLint
+  - Swinject
+
+SPEC REPOS:
+  trunk:
+    - Reusable
+    - SnapKit
+    - SwiftFormat
+    - SwiftGen
+    - SwiftLint
+    - Swinject
+
+SPEC CHECKSUMS:
+  Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftFormat: 0a9044eb365d74d4a0a2cefa5fe44a4cbef382a7
+  SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
+  SwiftLint: e5c7f1fba68eccfc51509d5b2ce1699f5502e0c7
+  Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
+
+PODFILE CHECKSUM: 18b8dace8a111f7118b9f3b516698b9ec2cb2a59
+
+COCOAPODS: 1.11.2
