@@ -9,7 +9,7 @@ import Swinject
 import UIKit
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
     private static let container = Container()
 
     static let assembler: Assembler = {
