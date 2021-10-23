@@ -41,30 +41,20 @@ final class TodayViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let section = dataSource.sectionIdentifier(for: indexPath.section) else {
-            fatalError("sectionが不正")
-        }
-
-        let items = dataSource.snapshot().itemIdentifiers(inSection: section)
-        let item = items[indexPath.row]
-
-        switch item {
+        switch dataSource.itemIdentifier(for: indexPath) {
         case .feature:
             return 480
+        case nil:
+            return 0
         }
     }
 
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let section = dataSource.sectionIdentifier(for: indexPath.section) else {
-            fatalError("sectionが不正")
-        }
-
-        let items = dataSource.snapshot().itemIdentifiers(inSection: section)
-        let item = items[indexPath.row]
-
-        switch item {
+        switch dataSource.itemIdentifier(for: indexPath) {
         case .feature:
             return 480
+        case nil:
+            return 0
         }
     }
 
