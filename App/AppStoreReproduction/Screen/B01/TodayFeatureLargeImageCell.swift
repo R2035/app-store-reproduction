@@ -16,7 +16,7 @@ final class TodayFeatureLargeImageCell: UITableViewCell, Reusable {
         view.backgroundColor = .systemBackground
         view.layer.cornerRadius = 16
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowRadius = 4
+        view.layer.shadowRadius = 8
         view.layer.shadowOpacity = 0.2
         return view
     }()
@@ -85,6 +85,11 @@ final class TodayFeatureLargeImageCell: UITableViewCell, Reusable {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
     }
 
     func update(description: String, title: String, imageURL: String) {
