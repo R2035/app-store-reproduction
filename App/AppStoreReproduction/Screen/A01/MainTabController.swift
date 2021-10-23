@@ -27,13 +27,19 @@ final class MainTabController: UITabBarController {
         return appViewController
     }()
 
+    private lazy var arcadeViewController: ArcadeViewController = {
+        let arcadeViewController = ArcadeViewController()
+        return arcadeViewController
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         viewControllers = [
             todayViewController,
             UINavigationController(rootViewController: gameViewController),
-            UINavigationController(rootViewController: appViewController)
+            UINavigationController(rootViewController: appViewController),
+            UINavigationController(rootViewController: arcadeViewController)
         ]
     }
 }

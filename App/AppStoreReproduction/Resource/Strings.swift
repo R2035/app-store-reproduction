@@ -25,6 +25,11 @@ internal enum L10n {
     /// App
     internal static let title = L10n.tr("Localizable", "D01.Title")
   }
+
+  internal enum E01 {
+    /// Arcade
+    internal static let title = L10n.tr("Localizable", "E01.Title")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
