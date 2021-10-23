@@ -43,13 +43,13 @@ final class TodayFeatureLargeImageCell: UITableViewCell, Reusable {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        contentView.addSubview(contentView)
+        contentView.addSubview(containerView)
 
-        contentView.addSubview(descriptionLabel)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(thumbnailImageView)
+        containerView.addSubview(descriptionLabel)
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(thumbnailImageView)
 
-        contentView.snp.makeConstraints { make in
+        containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(16)
         }
 
