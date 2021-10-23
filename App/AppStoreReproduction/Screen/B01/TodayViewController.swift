@@ -65,7 +65,7 @@ final class TodayViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch dataSource.sectionIdentifier(for: section) {
         case .feature:
-            return 100
+            return UITableView.automaticDimension
         case nil:
             return 0
         }

@@ -18,6 +18,7 @@ final class TodayFeatureLargeImageCell: UITableViewCell, Reusable {
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowRadius = 8
         view.layer.shadowOpacity = 0.2
+        view.layer.shadowOffset = CGSize(width: 0, height: 8)
         return view
     }()
 
@@ -52,6 +53,10 @@ final class TodayFeatureLargeImageCell: UITableViewCell, Reusable {
 
         selectionStyle = .none
 
+        backgroundColor = .clear
+
+        contentView.backgroundColor = .clear
+
         contentView.addSubview(containerView)
 
         containerView.addSubview(descriptionLabel)
@@ -59,7 +64,7 @@ final class TodayFeatureLargeImageCell: UITableViewCell, Reusable {
         containerView.addSubview(thumbnailImageView)
 
         containerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(16)
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 16, bottom: 24, right: 16))
         }
 
         descriptionLabel.snp.makeConstraints { make in

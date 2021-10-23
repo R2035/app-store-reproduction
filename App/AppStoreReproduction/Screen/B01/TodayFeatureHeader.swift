@@ -16,6 +16,7 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
         label.numberOfLines = 1
         label.font = .preferredFont(forTextStyle: .subheadline)
         label.textColor = .systemGray
+        label.setContentHuggingPriority(.required, for: .vertical)
         return label
     }()
 
@@ -24,6 +25,7 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
         label.numberOfLines = 1
         label.text = L10n.B01.headerTodayTitle
         label.font = .preferredFont(forTextStyle: .title1)
+        label.setContentHuggingPriority(.required, for: .vertical)
         return label
     }()
 
@@ -36,7 +38,7 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
 
-        contentView.backgroundColor = .systemBackground
+        contentView.backgroundColor = .clear
 
         contentView.addSubview(dateLabel)
         contentView.addSubview(todayLabel)
@@ -48,10 +50,10 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
         }
 
         todayLabel.snp.makeConstraints { make in
-            make.top.equalTo(dateLabel.snp.bottom).offset(8)
+            make.top.equalTo(dateLabel.snp.bottom).offset(4)
             make.leading.equalTo(dateLabel)
             make.trailing.equalTo(dateLabel)
-            make.bottom.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-4)
         }
 
         accountImageView.snp.makeConstraints { make in
