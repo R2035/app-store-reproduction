@@ -27,7 +27,7 @@ final class SearchTextHeader: UITableViewHeaderFooterView, Reusable {
         contentView.addSubview(titleLabel)
 
         titleLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 32, left: 16, bottom: 16, right: 16))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0))
         }
     }
 

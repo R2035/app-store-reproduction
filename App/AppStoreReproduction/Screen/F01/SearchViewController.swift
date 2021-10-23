@@ -28,6 +28,10 @@ final class SearchViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchFindCell.self)
                 cell.update(title: title)
                 return cell
+            case let .recommendation(imageURL, title, description, installStatus, warning):
+                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchAppInstallCell.self)
+                cell.update(imageURL: imageURL, title: title, description: description, installStatus: installStatus, warning: warning)
+                return cell
             }
         }
 
@@ -35,7 +39,7 @@ final class SearchViewController: UITableViewController {
     }()
 
     init() {
-        super.init(style: .grouped)
+        super.init(style: .insetGrouped)
     }
 
     @available(*, unavailable)
@@ -53,10 +57,12 @@ final class SearchViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
 
         tableView.delaysContentTouches = false
+        tableView.separatorInset = .zero
         tableView.backgroundColor = .systemBackground
         tableView.dataSource = dataSource
         tableView.register(headerFooterViewType: SearchTextHeader.self)
         tableView.register(cellType: SearchFindCell.self)
+        tableView.register(cellType: SearchAppInstallCell.self)
 
         viewModel.sections.sink { [weak self] sections in
             self?.update(sections: sections)
@@ -69,6 +75,10 @@ final class SearchViewController: UITableViewController {
             let header = tableView.dequeueReusableHeaderFooterView(SearchTextHeader.self)
             header?.update(title: title)
             return header
+        case let .recommendation(title):
+            let header = tableView.dequeueReusableHeaderFooterView(SearchTextHeader.self)
+            header?.update(title: title)
+            return header
         case nil:
             return nil
         }
@@ -78,6 +88,8 @@ final class SearchViewController: UITableViewController {
         switch dataSource.sectionIdentifier(for: section) {
         case .find:
             return UITableView.automaticDimension
+        case .recommendation:
+            return UITableView.automaticDimension
         case nil:
             return 0
         }
@@ -86,6 +98,8 @@ final class SearchViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         switch dataSource.sectionIdentifier(for: section) {
         case .find:
+            return 60
+        case .recommendation:
             return 100
         case nil:
             return 0
@@ -95,7 +109,9 @@ final class SearchViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch dataSource.itemIdentifier(for: indexPath) {
         case .find:
-            return 40
+            return UITableView.automaticDimension
+        case .recommendation:
+            return UITableView.automaticDimension
         case nil:
             return 0
         }
@@ -105,6 +121,8 @@ final class SearchViewController: UITableViewController {
         switch dataSource.itemIdentifier(for: indexPath) {
         case .find:
             return 40
+        case .recommendation:
+            return 100
         case nil:
             return 0
         }

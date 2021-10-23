@@ -9,4 +9,6 @@ import Foundation
 
 enum SearchSection: Hashable {
     case find(title: String)
+
+    case recommendation(title: String)
 }

@@ -9,4 +9,6 @@ import Foundation
 
 enum SearchItem: Hashable {
     case find(title: String)
+
+    case recommendation(imageURL: String, title: String, description: String, installStatus: String, warning: String)
 }
