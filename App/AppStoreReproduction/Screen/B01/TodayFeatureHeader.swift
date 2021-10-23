@@ -29,9 +29,11 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
         return label
     }()
 
-    private lazy var accountImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person.circle")
+    private lazy var accountImageView: UIButton = {
+        var buttonConfiguration = UIButton.Configuration.plain()
+        let imageConfiguration = UIImage.SymbolConfiguration(pointSize: 24)
+        buttonConfiguration.image = UIImage(systemName: "person.circle", withConfiguration: imageConfiguration)
+        let imageView = UIButton(configuration: buttonConfiguration, primaryAction: nil)
         return imageView
     }()
 
