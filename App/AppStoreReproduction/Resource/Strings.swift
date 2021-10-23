@@ -13,6 +13,8 @@ internal enum L10n {
 
   internal enum B01 {
     /// Today
+    internal static let headerTodayTitle = L10n.tr("Localizable", "B01.HeaderTodayTitle")
+    /// Today
     internal static let title = L10n.tr("Localizable", "B01.Title")
   }
 

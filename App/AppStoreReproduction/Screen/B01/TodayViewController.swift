@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 /// B01 Today
-final class TodayViewController: UIViewController {
+final class TodayViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 

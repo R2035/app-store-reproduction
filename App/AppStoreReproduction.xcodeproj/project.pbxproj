@@ -17,6 +17,10 @@
 		8E77C8D2272396BE007FF4E3 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8D1272396BE007FF4E3 /* AppViewController.swift */; };
 		8E77C8D527239779007FF4E3 /* ArcadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8D427239779007FF4E3 /* ArcadeViewController.swift */; };
 		8E77C8D82723982A007FF4E3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8D72723982A007FF4E3 /* SearchViewController.swift */; };
+		8E77C8DA2723A1F3007FF4E3 /* TodayFeatureHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8D92723A1F3007FF4E3 /* TodayFeatureHeader.swift */; };
+		8E77C8DC2723A206007FF4E3 /* TodayFeatureLargeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8DB2723A206007FF4E3 /* TodayFeatureLargeImageCell.swift */; };
+		8E77C8DE2723A29D007FF4E3 /* TodaySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8DD2723A29D007FF4E3 /* TodaySection.swift */; };
+		8E77C8E02723A2F0007FF4E3 /* TodayFeatureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8DF2723A2F0007FF4E3 /* TodayFeatureItem.swift */; };
 		8EF9110827237F2A00D184E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9110727237F2A00D184E2 /* AppDelegate.swift */; };
 		8EF9110A27237F2A00D184E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9110927237F2A00D184E2 /* SceneDelegate.swift */; };
 		8EF9111127237F2B00D184E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EF9111027237F2B00D184E2 /* Assets.xcassets */; };
@@ -36,6 +40,10 @@
 		8E77C8D1272396BE007FF4E3 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		8E77C8D427239779007FF4E3 /* ArcadeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcadeViewController.swift; sourceTree = "<group>"; };
 		8E77C8D72723982A007FF4E3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8E77C8D92723A1F3007FF4E3 /* TodayFeatureHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFeatureHeader.swift; sourceTree = "<group>"; };
+		8E77C8DB2723A206007FF4E3 /* TodayFeatureLargeImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFeatureLargeImageCell.swift; sourceTree = "<group>"; };
+		8E77C8DD2723A29D007FF4E3 /* TodaySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySection.swift; sourceTree = "<group>"; };
+		8E77C8DF2723A2F0007FF4E3 /* TodayFeatureItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFeatureItem.swift; sourceTree = "<group>"; };
 		8EF9110427237F2A00D184E2 /* AppStoreReproduction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreReproduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF9110727237F2A00D184E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EF9110927237F2A00D184E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +119,10 @@
 		8E77C8CA2723875B007FF4E3 /* B01 */ = {
 			isa = PBXGroup;
 			children = (
+				8E77C8D92723A1F3007FF4E3 /* TodayFeatureHeader.swift */,
+				8E77C8DF2723A2F0007FF4E3 /* TodayFeatureItem.swift */,
+				8E77C8DB2723A206007FF4E3 /* TodayFeatureLargeImageCell.swift */,
+				8E77C8DD2723A29D007FF4E3 /* TodaySection.swift */,
 				8E77C8CB27238779007FF4E3 /* TodayViewController.swift */,
 			);
 			path = B01;
@@ -363,9 +375,13 @@
 				8E77C8C9272386AB007FF4E3 /* MainTabController.swift in Sources */,
 				8E77C8C02723829C007FF4E3 /* Strings.swift in Sources */,
 				8E77C8C12723829C007FF4E3 /* Assets.swift in Sources */,
+				8E77C8DC2723A206007FF4E3 /* TodayFeatureLargeImageCell.swift in Sources */,
+				8E77C8E02723A2F0007FF4E3 /* TodayFeatureItem.swift in Sources */,
+				8E77C8DE2723A29D007FF4E3 /* TodaySection.swift in Sources */,
 				8E77C8CC27238779007FF4E3 /* TodayViewController.swift in Sources */,
 				8EF9110A27237F2A00D184E2 /* SceneDelegate.swift in Sources */,
 				8E77C8D527239779007FF4E3 /* ArcadeViewController.swift in Sources */,
+				8E77C8DA2723A1F3007FF4E3 /* TodayFeatureHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
