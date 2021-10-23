@@ -170,8 +170,8 @@
 		8E77C8D627239819007FF4E3 /* F01 */ = {
 			isa = PBXGroup;
 			children = (
-				8E77C8D72723982A007FF4E3 /* SearchViewController.swift */,
 				8E77C8F02723CEC5007FF4E3 /* SearchTextHeader.swift */,
+				8E77C8D72723982A007FF4E3 /* SearchViewController.swift */,
 			);
 			path = F01;
 			sourceTree = "<group>";
