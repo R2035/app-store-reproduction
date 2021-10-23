@@ -35,7 +35,7 @@ final class SearchAppInstallCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func update(imageURL: String, title: String, description: String, installStatus: String, warning: String) {
-        appInstallView.update(imageURL: imageURL, title: title, description: description, installStatus: installStatus, warning: warning)
+    func update(imageURL: String, title: String, description: String, installStatus: String, warning: String, isSeparatorHidden: Bool) {
+        appInstallView.update(imageURL: imageURL, title: title, description: description, installStatus: installStatus, warning: warning, isSeparatorHidden: isSeparatorHidden)
     }
 }

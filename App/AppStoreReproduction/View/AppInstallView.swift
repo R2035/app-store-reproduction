@@ -64,6 +64,12 @@ final class AppInstallView: UIView {
         return label
     }()
 
+    private lazy var separator: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray4
+        return view
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -75,12 +81,12 @@ final class AppInstallView: UIView {
         labelStackView.addArrangedSubview(descriptionLabel)
         addSubview(installStatusButton)
         addSubview(warningLabel)
+        addSubview(separator)
 
         thumbnailImageView.snp.makeConstraints { make in
             make.size.equalTo(48)
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
             make.top.equalToSuperview().offset(16)
-            make.bottom.equalToSuperview().offset(-16)
         }
 
         labelStackView.snp.makeConstraints { make in
@@ -92,12 +98,20 @@ final class AppInstallView: UIView {
         installStatusButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(labelStackView.snp.trailing).offset(16)
-            make.trailing.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-16)
         }
 
         warningLabel.snp.makeConstraints { make in
             make.centerX.equalTo(installStatusButton)
             make.top.equalTo(installStatusButton.snp.bottom).offset(4)
+        }
+
+        separator.snp.makeConstraints { make in
+            make.top.equalTo(thumbnailImageView.snp.bottom).offset(16)
+            make.leading.equalTo(labelStackView)
+            make.trailing.equalTo(installStatusButton)
+            make.bottom.equalToSuperview()
+            make.height.equalTo(1 / UIScreen.main.scale)
         }
     }
 
@@ -106,11 +120,12 @@ final class AppInstallView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func update(imageURL: String, title: String, description: String, installStatus: String, warning: String) {
+    func update(imageURL: String, title: String, description: String, installStatus: String, warning: String, isSeparatorHidden: Bool) {
         // TODO: ImageViewに画像を表示する
         titleLabel.text = title
         descriptionLabel.text = description
         warningLabel.text = warning
+        separator.isHidden = isSeparatorHidden
 
         var container = AttributeContainer()
         container.font = .preferredFont(forTextStyle: .footnote)

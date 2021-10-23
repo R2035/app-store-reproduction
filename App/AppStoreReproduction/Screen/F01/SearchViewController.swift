@@ -28,13 +28,13 @@ final class SearchViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchTitleCell.self)
                 cell.update(title: title)
                 return cell
-            case let .find(title):
+            case let .find(title, isSeparatorHidden):
                 let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchFindCell.self)
-                cell.update(title: title)
+                cell.update(title: title, isSeparatorHidden: isSeparatorHidden)
                 return cell
-            case let .recommendation(imageURL, title, description, installStatus, warning):
+            case let .recommendation(imageURL, title, description, installStatus, warning, isSeparatorHidden):
                 let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchAppInstallCell.self)
-                cell.update(imageURL: imageURL, title: title, description: description, installStatus: installStatus, warning: warning)
+                cell.update(imageURL: imageURL, title: title, description: description, installStatus: installStatus, warning: warning, isSeparatorHidden: isSeparatorHidden)
                 return cell
             }
         }
@@ -42,7 +42,7 @@ final class SearchViewController: UITableViewController {
     }()
 
     init() {
-        super.init(style: .insetGrouped)
+        super.init(style: .plain)
     }
 
     @available(*, unavailable)
@@ -60,7 +60,7 @@ final class SearchViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
 
         tableView.delaysContentTouches = false
-        tableView.separatorInset = .zero
+        tableView.separatorStyle = .none
         tableView.backgroundColor = .systemBackground
         tableView.dataSource = dataSource
         tableView.register(cellType: SearchAppInstallCell.self)

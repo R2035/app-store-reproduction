@@ -19,15 +19,32 @@ final class SearchTitleCell: UITableViewCell, Reusable {
         return label
     }()
 
+    private lazy var separator: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray4
+        return view
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         contentView.backgroundColor = .clear
 
         contentView.addSubview(titleLabel)
+        contentView.addSubview(separator)
 
         titleLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0))
+            make.top.equalToSuperview().offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+
+        separator.snp.makeConstraints { make in
+            make.bottom.equalTo(titleLabel.snp.bottom).offset(8)
+            make.leading.equalTo(titleLabel)
+            make.trailing.equalTo(titleLabel)
+            make.bottom.equalToSuperview()
+            make.height.equalTo(1 / UIScreen.main.scale)
         }
     }
 
