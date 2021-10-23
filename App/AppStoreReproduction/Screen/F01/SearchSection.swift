@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum SearchSection {
-    case find
+enum SearchSection: Hashable {
+    case find(title: String)
 }

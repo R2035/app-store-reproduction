@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum SearchItem {
+enum SearchItem: Hashable {
     case find(title: String)
 }

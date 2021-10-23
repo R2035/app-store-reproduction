@@ -5,6 +5,7 @@
 //  Created by oe on 2021/10/23.
 //
 
+import Combine
 import Foundation
 import UIKit
 
@@ -16,6 +17,32 @@ final class SearchViewController: UITableViewController {
         return searchController
     }()
 
+    private let viewModel: SearchViewModel = AppDelegate.assembler.resolver.resolve()
+
+    private var cancellables = Set<AnyCancellable>()
+
+    private lazy var dataSource: UITableViewDiffableDataSource<SearchSection, SearchItem> = {
+        let dataSource = UITableViewDiffableDataSource<SearchSection, SearchItem>(tableView: tableView) { tableView, indexPath, item -> UITableViewCell? in
+            switch item {
+            case let .find(title):
+                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchFindCell.self)
+                cell.update(title: title)
+                return cell
+            }
+        }
+
+        return dataSource
+    }()
+
+    init() {
+        super.init(style: .grouped)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +52,70 @@ final class SearchViewController: UITableViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationController?.navigationBar.prefersLargeTitles = true
 
+        tableView.delaysContentTouches = false
         tableView.backgroundColor = .systemBackground
+        tableView.dataSource = dataSource
+        tableView.register(headerFooterViewType: SearchTextHeader.self)
+        tableView.register(cellType: SearchFindCell.self)
+
+        viewModel.sections.sink { [weak self] sections in
+            self?.update(sections: sections)
+        }.store(in: &cancellables)
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch dataSource.sectionIdentifier(for: section) {
+        case let .find(title):
+            let header = tableView.dequeueReusableHeaderFooterView(SearchTextHeader.self)
+            header?.update(title: title)
+            return header
+        case nil:
+            return nil
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch dataSource.sectionIdentifier(for: section) {
+        case .find:
+            return UITableView.automaticDimension
+        case nil:
+            return 0
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        switch dataSource.sectionIdentifier(for: section) {
+        case .find:
+            return 100
+        case nil:
+            return 0
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch dataSource.itemIdentifier(for: indexPath) {
+        case .find:
+            return 40
+        case nil:
+            return 0
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch dataSource.itemIdentifier(for: indexPath) {
+        case .find:
+            return 40
+        case nil:
+            return 0
+        }
+    }
+
+    private func update(sections: [(SearchSection, [SearchItem])]) {
+        var snapshot = NSDiffableDataSourceSnapshot<SearchSection, SearchItem>()
+        sections.forEach { section, items in
+            snapshot.appendSections([section])
+            snapshot.appendItems(items)
+        }
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 }

@@ -15,5 +15,9 @@ final class AppAssembly: Assembly {
         container.register(TodayViewModel.self) { _ in
             TodayViewModel()
         }
+
+        container.register(SearchViewModel.self) { _ in
+            SearchViewModel()
+        }
     }
 }
