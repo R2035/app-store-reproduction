@@ -23,7 +23,7 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
         let label = UILabel()
         label.numberOfLines = 1
         label.text = L10n.B01.headerTodayTitle
-        label.font = .preferredFont(forTextStyle: .headline)
+        label.font = .preferredFont(forTextStyle: .title1)
         return label
     }()
 
@@ -35,6 +35,8 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
+
+        contentView.backgroundColor = .systemBackground
 
         contentView.addSubview(dateLabel)
         contentView.addSubview(todayLabel)
@@ -49,11 +51,11 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
             make.top.equalTo(dateLabel.snp.bottom).offset(8)
             make.leading.equalTo(dateLabel)
             make.trailing.equalTo(dateLabel)
-            make.bottom.equalToSuperview().offset(16)
+            make.bottom.equalToSuperview().offset(-16)
         }
 
         accountImageView.snp.makeConstraints { make in
-            make.size.equalTo(24)
+            make.size.equalTo(32)
             make.leading.equalTo(dateLabel.snp.trailing).offset(8)
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalTo(todayLabel)

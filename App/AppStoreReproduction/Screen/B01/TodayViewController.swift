@@ -28,9 +28,19 @@ final class TodayViewController: UITableViewController {
         return dataSource
     }()
 
+    init() {
+        super.init(style: .grouped)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.backgroundColor = .systemBackground
         tableView.separatorStyle = .none
         tableView.dataSource = dataSource
         tableView.register(headerFooterViewType: TodayFeatureHeader.self)
