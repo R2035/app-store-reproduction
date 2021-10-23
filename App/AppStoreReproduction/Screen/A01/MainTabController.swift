@@ -32,6 +32,11 @@ final class MainTabController: UITabBarController {
         return arcadeViewController
     }()
 
+    private lazy var searchViewController: SearchViewController = {
+        let searchViewController = SearchViewController()
+        return searchViewController
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,7 +44,8 @@ final class MainTabController: UITabBarController {
             todayViewController,
             UINavigationController(rootViewController: gameViewController),
             UINavigationController(rootViewController: appViewController),
-            UINavigationController(rootViewController: arcadeViewController)
+            UINavigationController(rootViewController: arcadeViewController),
+            UINavigationController(rootViewController: searchViewController)
         ]
     }
 }
