@@ -33,10 +33,10 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
         var buttonConfiguration = UIButton.Configuration.plain()
         let imageConfiguration = UIImage.SymbolConfiguration(pointSize: 24)
         buttonConfiguration.image = UIImage(systemName: "person.circle", withConfiguration: imageConfiguration)
-        let imageView = UIButton(configuration: buttonConfiguration, primaryAction: UIAction(handler: { [weak self] _ in
+        let button = UIButton(configuration: buttonConfiguration, primaryAction: UIAction(handler: { [weak self] _ in
             self?.accountButtonTapHandler()
         }))
-        return imageView
+        return button
     }()
 
     private var accountButtonTapHandler = {}
