@@ -9,10 +9,21 @@ import Foundation
 import UIKit
 
 /// D01 App
-final class AppViewController: UIViewController {
+final class AppViewController: UICollectionViewController {
+    init() {
+        super.init(collectionViewLayout: UICollectionViewLayout())
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = L10n.D01.title
+
+        collectionView.backgroundColor = .systemBackground
     }
 }
