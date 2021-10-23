@@ -33,9 +33,13 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
         var buttonConfiguration = UIButton.Configuration.plain()
         let imageConfiguration = UIImage.SymbolConfiguration(pointSize: 24)
         buttonConfiguration.image = UIImage(systemName: "person.circle", withConfiguration: imageConfiguration)
-        let imageView = UIButton(configuration: buttonConfiguration, primaryAction: nil)
+        let imageView = UIButton(configuration: buttonConfiguration, primaryAction: UIAction(handler: { [weak self] _ in
+            self?.accountButtonTapHandler()
+        }))
         return imageView
     }()
+
+    private var accountButtonTapHandler = {}
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -71,7 +75,8 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func update(date: String) {
+    func update(date: String, accountButtonTapHandler: @escaping () -> Void) {
         dateLabel.text = date
+        self.accountButtonTapHandler = accountButtonTapHandler
     }
 }

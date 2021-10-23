@@ -56,7 +56,9 @@ final class TodayViewController: UITableViewController {
         switch dataSource.sectionIdentifier(for: section) {
         case let .feature(date):
             let header = tableView.dequeueReusableHeaderFooterView(TodayFeatureHeader.self)
-            header?.update(date: date)
+            header?.update(date: date) {
+                // TODO: 画面遷移を実装
+            }
             return header
         case nil:
             return nil
