@@ -17,11 +17,17 @@ final class MainTabController: UITabBarController {
         return todayViewController
     }()
 
+    private lazy var gameViewController: GameViewController = {
+        let gameViewController = GameViewController()
+        return gameViewController
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         viewControllers = [
-            todayViewController
+            todayViewController,
+            UINavigationController(rootViewController: gameViewController)
         ]
     }
 }
