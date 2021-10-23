@@ -29,7 +29,7 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
         return label
     }()
 
-    private lazy var accountImageView: UIButton = {
+    private lazy var accountButton: UIButton = {
         var buttonConfiguration = UIButton.Configuration.plain()
         let imageConfiguration = UIImage.SymbolConfiguration(pointSize: 24)
         buttonConfiguration.image = UIImage(systemName: "person.circle", withConfiguration: imageConfiguration)
@@ -48,7 +48,7 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
 
         contentView.addSubview(dateLabel)
         contentView.addSubview(todayLabel)
-        contentView.addSubview(accountImageView)
+        contentView.addSubview(accountButton)
 
         dateLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
@@ -62,7 +62,7 @@ final class TodayFeatureHeader: UITableViewHeaderFooterView, Reusable {
             make.bottom.equalToSuperview().offset(-4)
         }
 
-        accountImageView.snp.makeConstraints { make in
+        accountButton.snp.makeConstraints { make in
             make.size.equalTo(32)
             make.leading.equalTo(dateLabel.snp.trailing).offset(8)
             make.trailing.equalToSuperview().offset(-16)
