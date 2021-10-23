@@ -50,14 +50,18 @@ final class TodayViewController: UITableViewController {
         viewModel.sections.sink { [weak self] sections in
             self?.update(sections: sections)
         }.store(in: &cancellables)
+
+        viewModel.destination.sink { [weak self] destination in
+            self?.transition(destination: destination)
+        }.store(in: &cancellables)
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch dataSource.sectionIdentifier(for: section) {
         case let .feature(date):
             let header = tableView.dequeueReusableHeaderFooterView(TodayFeatureHeader.self)
-            header?.update(date: date) {
-                // TODO: 画面遷移を実装
+            header?.update(date: date) { [weak self] in
+                self?.viewModel.accountButtonDidTouchUpInside()
             }
             return header
         case nil:
@@ -108,5 +112,13 @@ final class TodayViewController: UITableViewController {
             snapshot.appendItems(items)
         }
         dataSource.apply(snapshot, animatingDifferences: true)
+    }
+
+    private func transition(destination: TodayDestination) {
+        switch destination {
+        case .account:
+            let AccountNavigationController = UINavigationController(rootViewController: AccountViewController())
+            present(AccountNavigationController, animated: true)
+        }
     }
 }

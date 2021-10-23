@@ -11,6 +11,8 @@ import Foundation
 struct TodayViewModel {
     let sections: AnyPublisher<[(TodaySection, [TodayItem])], Never>
 
+    let destination: AnyPublisher<TodayDestination, Never>
+
     private let _sections = CurrentValueSubject<[(TodaySection, [TodayItem])], Never>([
         (
             .feature(date: "10月23日 土曜日"),
@@ -24,9 +26,19 @@ struct TodayViewModel {
         )
     ])
 
+    private let _destination = PassthroughSubject<TodayDestination, Never>()
+
     init() {
         sections = _sections
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
+
+        destination = _destination
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+
+    func accountButtonDidTouchUpInside() {
+        _destination.send(.account)
     }
 }
