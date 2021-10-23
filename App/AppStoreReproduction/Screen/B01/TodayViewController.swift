@@ -33,11 +33,41 @@ final class TodayViewController: UITableViewController {
 
         tableView.separatorStyle = .none
         tableView.dataSource = dataSource
+        tableView.register(headerFooterViewType: TodayFeatureHeader.self)
         tableView.register(cellType: TodayFeatureLargeImageCell.self)
 
         viewModel.sections.sink { [weak self] sections in
             self?.update(sections: sections)
         }.store(in: &cancellables)
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch dataSource.sectionIdentifier(for: section) {
+        case let .feature(date):
+            let header = tableView.dequeueReusableHeaderFooterView(TodayFeatureHeader.self)
+            header?.update(date: date)
+            return header
+        case nil:
+            return nil
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch dataSource.sectionIdentifier(for: section) {
+        case .feature:
+            return 100
+        case nil:
+            return 0
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        switch dataSource.sectionIdentifier(for: section) {
+        case .feature:
+            return 100
+        case nil:
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
