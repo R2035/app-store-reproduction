@@ -14,26 +14,36 @@ import UIKit
 final class MainTabController: UITabBarController {
     private lazy var todayViewController: TodayViewController = {
         let todayViewController = TodayViewController()
+        let image = UIImage(systemName: "newspaper")
+        todayViewController.tabBarItem = UITabBarItem(title: L10n.B01.title, image: image, selectedImage: image)
         return todayViewController
     }()
 
     private lazy var gameViewController: GameViewController = {
         let gameViewController = GameViewController()
+        let image = UIImage(systemName: "gamecontroller")
+        gameViewController.tabBarItem = UITabBarItem(title: L10n.C01.title, image: image, selectedImage: image)
         return gameViewController
     }()
 
     private lazy var appViewController: AppViewController = {
         let appViewController = AppViewController()
+        let image = UIImage(systemName: "app")
+        appViewController.tabBarItem = UITabBarItem(title: L10n.D01.title, image: image, selectedImage: image)
         return appViewController
     }()
 
     private lazy var arcadeViewController: ArcadeViewController = {
         let arcadeViewController = ArcadeViewController()
+        let image = UIImage(systemName: "circle.grid.cross")
+        arcadeViewController.tabBarItem = UITabBarItem(title: L10n.E01.title, image: image, selectedImage: image)
         return arcadeViewController
     }()
 
     private lazy var searchViewController: SearchViewController = {
         let searchViewController = SearchViewController()
+        let image = UIImage(systemName: "magnifyingglass")
+        searchViewController.tabBarItem = UITabBarItem(title: L10n.F01.title, image: image, selectedImage: image)
         return searchViewController
     }()
 
