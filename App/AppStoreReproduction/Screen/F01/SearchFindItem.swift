@@ -13,9 +13,9 @@ import UIKit
 final class SearchFindCell: UITableViewCell, Reusable {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .systemBlue
+        label.textColor = .systemBlue
         label.numberOfLines = 1
-        label.font = .preferredFont(forTextStyle: .headline)
+        label.font = .preferredFont(forTextStyle: .body)
         return label
     }()
 

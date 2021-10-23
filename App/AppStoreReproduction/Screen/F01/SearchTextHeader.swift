@@ -14,8 +14,7 @@ final class SearchTextHeader: UITableViewHeaderFooterView, Reusable {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = .preferredFont(forTextStyle: .title1)
-        label.textColor = .systemGray
+        label.font = .preferredFont(forTextStyle: .headline)
         label.setContentHuggingPriority(.required, for: .vertical)
         return label
     }()
