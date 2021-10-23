@@ -40,6 +40,7 @@ final class TodayViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delaysContentTouches = false
         tableView.backgroundColor = .systemBackground
         tableView.separatorStyle = .none
         tableView.dataSource = dataSource
