@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum SearchSection: Hashable {
-    case find(title: String)
+enum SearchSection {
+    case find
 
-    case recommendation(title: String)
+    case recommendation
 }

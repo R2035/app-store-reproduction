@@ -13,8 +13,9 @@ struct SearchViewModel {
 
     private let _sections = CurrentValueSubject<[(SearchSection, [SearchItem])], Never>([
         (
-            .find(title: "見つける"),
+            .find,
             [
+                .title(title: "見つける"),
                 .find(title: "ナンプレ"),
                 .find(title: "赤ちゃん"),
                 .find(title: "髪型"),
@@ -22,8 +23,9 @@ struct SearchViewModel {
             ]
         ),
         (
-            .recommendation(title: "あなたにおすすめ"),
+            .recommendation,
             [
+                .title(title: "あなたにおすすめ"),
                 .recommendation(imageURL: "", title: "タイトルタイトルタイトル1", description: "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明", installStatus: "入手", warning: "アプリ内課金"),
                 .recommendation(imageURL: "", title: "タイトルタイトルタイトル2", description: "説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明", installStatus: "入手", warning: ""),
                 .recommendation(imageURL: "", title: "タイトル3", description: "説明説明説明説明説明説明説明", installStatus: "入手", warning: "アプリ内課金"),

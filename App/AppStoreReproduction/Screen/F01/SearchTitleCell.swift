@@ -1,5 +1,5 @@
 //
-//  SearchTextHeader.swift
+//  SearchTitleCell.swift
 //  AppStoreReproduction
 //
 //  Created by oe on 2021/10/23.
@@ -10,7 +10,7 @@ import Reusable
 import SnapKit
 import UIKit
 
-final class SearchTextHeader: UITableViewHeaderFooterView, Reusable {
+final class SearchTitleCell: UITableViewCell, Reusable {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
@@ -19,8 +19,8 @@ final class SearchTextHeader: UITableViewHeaderFooterView, Reusable {
         return label
     }()
 
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         contentView.backgroundColor = .clear
 

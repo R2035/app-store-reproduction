@@ -26,7 +26,7 @@
 		8E77C8EA2723A999007FF4E3 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8E92723A999007FF4E3 /* TodayViewModel.swift */; };
 		8E77C8ED2723C2AF007FF4E3 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8EC2723C2AF007FF4E3 /* AccountViewController.swift */; };
 		8E77C8EF2723C429007FF4E3 /* TodayDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8EE2723C429007FF4E3 /* TodayDestination.swift */; };
-		8E77C8F12723CEC5007FF4E3 /* SearchTextHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8F02723CEC5007FF4E3 /* SearchTextHeader.swift */; };
+		8E77C8F12723CEC5007FF4E3 /* SearchTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8F02723CEC5007FF4E3 /* SearchTitleCell.swift */; };
 		8E77C8F42723CF7E007FF4E3 /* SearchFindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8F32723CF7E007FF4E3 /* SearchFindCell.swift */; };
 		8E77C8F62723D04D007FF4E3 /* SearchSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8F52723D04D007FF4E3 /* SearchSection.swift */; };
 		8E77C8F82723D057007FF4E3 /* SearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E77C8F72723D057007FF4E3 /* SearchItem.swift */; };
@@ -61,7 +61,7 @@
 		8E77C8E92723A999007FF4E3 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		8E77C8EC2723C2AF007FF4E3 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		8E77C8EE2723C429007FF4E3 /* TodayDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDestination.swift; sourceTree = "<group>"; };
-		8E77C8F02723CEC5007FF4E3 /* SearchTextHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextHeader.swift; sourceTree = "<group>"; };
+		8E77C8F02723CEC5007FF4E3 /* SearchTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleCell.swift; sourceTree = "<group>"; };
 		8E77C8F32723CF7E007FF4E3 /* SearchFindCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFindCell.swift; sourceTree = "<group>"; };
 		8E77C8F52723D04D007FF4E3 /* SearchSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSection.swift; sourceTree = "<group>"; };
 		8E77C8F72723D057007FF4E3 /* SearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItem.swift; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 				8E77C8F32723CF7E007FF4E3 /* SearchFindCell.swift */,
 				8E77C8F72723D057007FF4E3 /* SearchItem.swift */,
 				8E77C8F52723D04D007FF4E3 /* SearchSection.swift */,
-				8E77C8F02723CEC5007FF4E3 /* SearchTextHeader.swift */,
+				8E77C8F02723CEC5007FF4E3 /* SearchTitleCell.swift */,
 				8E77C8D72723982A007FF4E3 /* SearchViewController.swift */,
 				8E77C8F92723D0B0007FF4E3 /* SearchViewModel.swift */,
 			);
@@ -451,7 +451,7 @@
 				8E77C8DE2723A29D007FF4E3 /* TodaySection.swift in Sources */,
 				8E77C8CC27238779007FF4E3 /* TodayViewController.swift in Sources */,
 				8EF9110A27237F2A00D184E2 /* SceneDelegate.swift in Sources */,
-				8E77C8F12723CEC5007FF4E3 /* SearchTextHeader.swift in Sources */,
+				8E77C8F12723CEC5007FF4E3 /* SearchTitleCell.swift in Sources */,
 				8E77C8EA2723A999007FF4E3 /* TodayViewModel.swift in Sources */,
 				8E77C8D527239779007FF4E3 /* ArcadeViewController.swift in Sources */,
 				8E77C8F42723CF7E007FF4E3 /* SearchFindCell.swift in Sources */,

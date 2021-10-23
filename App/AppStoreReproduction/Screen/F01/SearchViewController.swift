@@ -24,6 +24,10 @@ final class SearchViewController: UITableViewController {
     private lazy var dataSource: UITableViewDiffableDataSource<SearchSection, SearchItem> = {
         let dataSource = UITableViewDiffableDataSource<SearchSection, SearchItem>(tableView: tableView) { tableView, indexPath, item -> UITableViewCell? in
             switch item {
+            case let .title(title):
+                let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchTitleCell.self)
+                cell.update(title: title)
+                return cell
             case let .find(title):
                 let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SearchFindCell.self)
                 cell.update(title: title)
@@ -34,7 +38,6 @@ final class SearchViewController: UITableViewController {
                 return cell
             }
         }
-
         return dataSource
     }()
 
@@ -60,54 +63,19 @@ final class SearchViewController: UITableViewController {
         tableView.separatorInset = .zero
         tableView.backgroundColor = .systemBackground
         tableView.dataSource = dataSource
-        tableView.register(headerFooterViewType: SearchTextHeader.self)
-        tableView.register(cellType: SearchFindCell.self)
         tableView.register(cellType: SearchAppInstallCell.self)
+        tableView.register(cellType: SearchFindCell.self)
+        tableView.register(cellType: SearchTitleCell.self)
 
         viewModel.sections.sink { [weak self] sections in
             self?.update(sections: sections)
         }.store(in: &cancellables)
     }
 
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch dataSource.sectionIdentifier(for: section) {
-        case let .find(title):
-            let header = tableView.dequeueReusableHeaderFooterView(SearchTextHeader.self)
-            header?.update(title: title)
-            return header
-        case let .recommendation(title):
-            let header = tableView.dequeueReusableHeaderFooterView(SearchTextHeader.self)
-            header?.update(title: title)
-            return header
-        case nil:
-            return nil
-        }
-    }
-
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch dataSource.sectionIdentifier(for: section) {
-        case .find:
-            return UITableView.automaticDimension
-        case .recommendation:
-            return UITableView.automaticDimension
-        case nil:
-            return 0
-        }
-    }
-
-    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        switch dataSource.sectionIdentifier(for: section) {
-        case .find:
-            return 60
-        case .recommendation:
-            return 100
-        case nil:
-            return 0
-        }
-    }
-
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch dataSource.itemIdentifier(for: indexPath) {
+        case .title:
+            return UITableView.automaticDimension
         case .find:
             return UITableView.automaticDimension
         case .recommendation:
@@ -119,6 +87,8 @@ final class SearchViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         switch dataSource.itemIdentifier(for: indexPath) {
+        case .title:
+            return 60
         case .find:
             return 40
         case .recommendation:
