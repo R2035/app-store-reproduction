@@ -24,6 +24,8 @@ final class AppViewController: UICollectionViewController {
 
         title = L10n.D01.title
 
+        navigationController?.navigationBar.prefersLargeTitles = true
+
         collectionView.backgroundColor = .systemBackground
     }
 }

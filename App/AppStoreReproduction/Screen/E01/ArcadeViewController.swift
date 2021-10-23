@@ -24,6 +24,8 @@ final class ArcadeViewController: UICollectionViewController {
 
         title = L10n.E01.title
 
+        navigationController?.navigationBar.prefersLargeTitles = true
+
         collectionView.backgroundColor = .systemBackground
     }
 }

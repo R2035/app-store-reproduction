@@ -24,6 +24,8 @@ final class GameViewController: UICollectionViewController {
 
         title = L10n.C01.title
 
+        navigationController?.navigationBar.prefersLargeTitles = true
+
         collectionView.backgroundColor = .systemBackground
     }
 }
