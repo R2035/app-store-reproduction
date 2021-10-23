@@ -11,5 +11,9 @@ import Swinject
 final class AppAssembly: Assembly {
     // MARK: Assembly
 
-    public func assemble(container: Container) {}
+    public func assemble(container: Container) {
+        container.register(TodayViewModel.self) { _ in
+            TodayViewModel()
+        }
+    }
 }

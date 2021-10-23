@@ -10,6 +10,8 @@ import UIKit
 
 /// B01 Today
 final class TodayViewController: UITableViewController {
+    private let viewModel: TodayViewModel = AppDelegate.assembler.resolver.resolve()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
