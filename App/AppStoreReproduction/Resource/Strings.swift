@@ -34,6 +34,8 @@ internal enum L10n {
   }
 
   internal enum F01 {
+    /// ゲーム、App、ストーリーなど
+    internal static let placeholder = L10n.tr("Localizable", "F01.Placeholder")
     /// 検索
     internal static let title = L10n.tr("Localizable", "F01.Title")
   }
