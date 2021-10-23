@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum TodaySection {
-    case feature(date: String, items: [TodayFeatureItem])
+enum TodaySection: Hashable {
+    case feature(date: String)
 }

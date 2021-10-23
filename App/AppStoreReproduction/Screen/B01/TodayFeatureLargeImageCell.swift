@@ -13,14 +13,17 @@ import UIKit
 final class TodayFeatureLargeImageCell: UITableViewCell, Reusable {
     private lazy var containerView: UIView = {
         let view = UIView()
+        view.backgroundColor = .systemBackground
+        view.layer.cornerRadius = 16
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowRadius = 16
-        view.layer.shadowOpacity = 0.5
+        view.layer.shadowRadius = 4
+        view.layer.shadowOpacity = 0.2
         return view
     }()
 
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
+        label.backgroundColor = .systemBackground
         label.numberOfLines = 1
         label.font = .preferredFont(forTextStyle: .subheadline)
         label.textColor = .systemGray
@@ -29,6 +32,7 @@ final class TodayFeatureLargeImageCell: UITableViewCell, Reusable {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
+        label.backgroundColor = .systemBackground
         label.numberOfLines = 1
         label.font = .preferredFont(forTextStyle: .headline)
         return label
@@ -37,11 +41,16 @@ final class TodayFeatureLargeImageCell: UITableViewCell, Reusable {
     private lazy var thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .systemGray
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 16
+        imageView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         return imageView
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        selectionStyle = .none
 
         contentView.addSubview(containerView)
 
